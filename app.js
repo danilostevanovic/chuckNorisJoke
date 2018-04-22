@@ -3,7 +3,9 @@ document.querySelector('.get-jokes').addEventListener('click', getJokes);
 function getJokes(e) {
   const xhr =new XMLHttpRequest();
   const number = document.getElementById("number").value;
-  
+  if(number.value<0){
+    number.value=0;
+  }
 
   xhr.open('GET',`https://api.icndb.com/jokes/random/${number}`,true);
   
